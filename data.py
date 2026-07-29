@@ -5,6 +5,7 @@ class Urls:
     LOGIN_URL = f"{BASE_URL}/login"
     FORGOT_PASSWORD_URL = f"{BASE_URL}/forgot-password"
     ACCOUNT_URL = f"{BASE_URL}/account"
+    PROFILE_URL = f"{BASE_URL}/account/profile"
 
 
 class TestData:

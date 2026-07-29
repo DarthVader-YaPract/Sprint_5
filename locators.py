@@ -69,8 +69,8 @@ class Locators:
     # Ссылка «Профиль» в меню личного кабинета
     PROFILE_LINK = (By.XPATH, "//a[text()='Профиль']")
 
-    # Кнопка «Выйти» в личном кабинете
-    LOGOUT_BUTTON = (By.XPATH, "//button[text()='Выйти']")
+    # Кнопка «Выход» в личном кабинете
+    LOGOUT_BUTTON = (By.XPATH, "//button[text()='Выход']")
 
     # Вкладка «Булки» в конструкторе
     BUNS_TAB = (By.XPATH, "//div[text()='Булки']")
