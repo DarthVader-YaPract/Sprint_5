@@ -73,13 +73,13 @@ class Locators:
     LOGOUT_BUTTON = (By.XPATH, "//button[text()='Выход']")
 
     # Вкладка «Булки» в конструкторе
-    BUNS_TAB = (By.XPATH, "//div[text()='Булки']")
+    BUNS_TAB = (By.XPATH, "//span[text()='Булки']/parent::div")
 
     # Вкладка «Соусы» в конструкторе
-    SAUCES_TAB = (By.XPATH, "//div[text()='Соусы']")
+    SAUCES_TAB = (By.XPATH, "//span[text()='Соусы']/parent::div")
 
     # Вкладка «Начинки» в конструкторе
-    FILLINGS_TAB = (By.XPATH, "//div[text()='Начинки']")
+    FILLINGS_TAB = (By.XPATH, "//span[text()='Начинки']/parent::div")
 
     # Активная вкладка конструктора
     ACTIVE_CONSTRUCTOR_TAB = (

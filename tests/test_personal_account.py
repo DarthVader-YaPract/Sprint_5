@@ -8,7 +8,12 @@ from locators import Locators
 class TestPersonalAccount:
     def test_go_to_personal_account(self, driver):
         driver.get(Urls.LOGIN_URL)
-        driver.find_element(*Locators.EMAIL_INPUT).send_keys(TestData.EMAIL)
+        email_input = WebDriverWait(driver, 10).until(
+            expected_conditions.visibility_of_element_located(
+                Locators.EMAIL_INPUT
+            )
+        )
+        email_input.send_keys(TestData.EMAIL)
         driver.find_element(*Locators.PASSWORD_INPUT).send_keys(
             TestData.CORRECT_PASSWORD
         )
@@ -30,7 +35,12 @@ class TestPersonalAccount:
 
     def test_go_to_constructor_from_personal_account(self, driver):
         driver.get(Urls.LOGIN_URL)
-        driver.find_element(*Locators.EMAIL_INPUT).send_keys(TestData.EMAIL)
+        email_input = WebDriverWait(driver, 10).until(
+            expected_conditions.visibility_of_element_located(
+                Locators.EMAIL_INPUT
+            )
+        )
+        email_input.send_keys(TestData.EMAIL)
         driver.find_element(*Locators.PASSWORD_INPUT).send_keys(
             TestData.CORRECT_PASSWORD
         )
@@ -57,7 +67,12 @@ class TestPersonalAccount:
 
     def test_go_to_constructor_by_logo(self, driver):
         driver.get(Urls.LOGIN_URL)
-        driver.find_element(*Locators.EMAIL_INPUT).send_keys(TestData.EMAIL)
+        email_input = WebDriverWait(driver, 10).until(
+            expected_conditions.visibility_of_element_located(
+                Locators.EMAIL_INPUT
+            )
+        )
+        email_input.send_keys(TestData.EMAIL)
         driver.find_element(*Locators.PASSWORD_INPUT).send_keys(
             TestData.CORRECT_PASSWORD
         )
@@ -84,7 +99,12 @@ class TestPersonalAccount:
 
     def test_logout_from_personal_account(self, driver):
         driver.get(Urls.LOGIN_URL)
-        driver.find_element(*Locators.EMAIL_INPUT).send_keys(TestData.EMAIL)
+        email_input = WebDriverWait(driver, 10).until(
+            expected_conditions.visibility_of_element_located(
+                Locators.EMAIL_INPUT
+            )
+        )
+        email_input.send_keys(TestData.EMAIL)
         driver.find_element(*Locators.PASSWORD_INPUT).send_keys(
             TestData.CORRECT_PASSWORD
         )
