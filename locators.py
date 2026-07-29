@@ -18,6 +18,9 @@ class Locators:
     # Кнопка «Войти в аккаунт» на главной странице
     MAIN_LOGIN_BUTTON = (By.XPATH, "//button[text()='Войти в аккаунт']")
 
+    # Кнопка «Оформить заказ» после входа в аккаунт
+    ORDER_BUTTON = (By.XPATH, "//button[text()='Оформить заказ']")
+
     # Поле «Имя» в форме регистрации
     REGISTRATION_NAME_INPUT = (
         By.XPATH,
