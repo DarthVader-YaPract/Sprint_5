@@ -1,3 +1,4 @@
+import pytest
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -29,16 +30,25 @@ class TestConstructor:
         assert active_tab.text == "Булки"
         driver.quit()
 
-    def test_go_to_sauces_tab(self, driver):
+    @pytest.mark.parametrize(
+        "tab_locator, expected_text",
+        [
+            (Locators.SAUCES_TAB, "Соусы"),
+            (Locators.FILLINGS_TAB, "Начинки"),
+        ],
+    )
+    def test_go_to_constructor_tab(
+        self, driver, tab_locator, expected_text
+    ):
         driver.get(Urls.MAIN_URL)
-        sauces_tab = WebDriverWait(driver, 10).until(
-            expected_conditions.element_to_be_clickable(Locators.SAUCES_TAB)
+        tab = WebDriverWait(driver, 10).until(
+            expected_conditions.element_to_be_clickable(tab_locator)
         )
-        sauces_tab.click()
+        tab.click()
 
         WebDriverWait(driver, 10).until(
             expected_conditions.text_to_be_present_in_element(
-                Locators.ACTIVE_CONSTRUCTOR_TAB, "Соусы"
+                Locators.ACTIVE_CONSTRUCTOR_TAB, expected_text
             )
         )
         active_tab = WebDriverWait(driver, 10).until(
@@ -47,26 +57,5 @@ class TestConstructor:
             )
         )
 
-        assert active_tab.text == "Соусы"
-        driver.quit()
-
-    def test_go_to_fillings_tab(self, driver):
-        driver.get(Urls.MAIN_URL)
-        fillings_tab = WebDriverWait(driver, 10).until(
-            expected_conditions.element_to_be_clickable(Locators.FILLINGS_TAB)
-        )
-        fillings_tab.click()
-
-        WebDriverWait(driver, 10).until(
-            expected_conditions.text_to_be_present_in_element(
-                Locators.ACTIVE_CONSTRUCTOR_TAB, "Начинки"
-            )
-        )
-        active_tab = WebDriverWait(driver, 10).until(
-            expected_conditions.visibility_of_element_located(
-                Locators.ACTIVE_CONSTRUCTOR_TAB
-            )
-        )
-
-        assert active_tab.text == "Начинки"
+        assert active_tab.text == expected_text
         driver.quit()
