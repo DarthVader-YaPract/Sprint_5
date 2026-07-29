@@ -1,6 +1,3 @@
-"""Постоянные тестовые данные и адреса страниц."""
-
-
 class Urls:
     BASE_URL = "https://stellarburgers.education-services.ru"
     REGISTRATION_URL = f"{BASE_URL}/register"

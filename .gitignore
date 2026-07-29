@@ -20,3 +20,12 @@ allure-results/
 allure-report/
 *.log
 
+# Локальные настройки и черновые документы
+pytest.ini
+*.txt
+!requirements.txt
+*.doc
+*.docx
+*.tmp
+*.bak
+~$*

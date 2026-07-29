@@ -1,6 +1,4 @@
 
-"""Локаторы элементов Stellar Burgers."""
-
 from selenium.webdriver.common.by import By
 
 
