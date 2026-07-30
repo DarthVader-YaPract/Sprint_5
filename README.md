@@ -17,14 +17,14 @@
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
-python -m pip install -r requirements.txt
+pip install selenium
+pip install pytest
 ```
 
 ## Запуск
 
 ```bash
-pytest
+pytest -v
 ```
 
 Для запуска нужен установленный Google Chrome.
-
