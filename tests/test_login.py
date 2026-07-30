@@ -22,14 +22,11 @@ class TestLogin:
         )
         driver.find_element(*Locators.LOGIN_BUTTON).click()
 
-        order_button = WebDriverWait(driver, 10).until(
+        assert WebDriverWait(driver, 10).until(
             expected_conditions.visibility_of_element_located(
                 Locators.ORDER_BUTTON
             )
-        )
-
-        assert order_button.is_displayed()
-        driver.quit()
+        ).is_displayed()
 
     def test_login_from_personal_account(self, driver):
         driver.get(Urls.MAIN_URL)
@@ -47,14 +44,11 @@ class TestLogin:
         )
         driver.find_element(*Locators.LOGIN_BUTTON).click()
 
-        order_button = WebDriverWait(driver, 10).until(
+        assert WebDriverWait(driver, 10).until(
             expected_conditions.visibility_of_element_located(
                 Locators.ORDER_BUTTON
             )
-        )
-
-        assert order_button.is_displayed()
-        driver.quit()
+        ).is_displayed()
 
     def test_login_from_registration_form(self, driver):
         driver.get(Urls.REGISTRATION_URL)
@@ -72,14 +66,11 @@ class TestLogin:
         )
         driver.find_element(*Locators.LOGIN_BUTTON).click()
 
-        order_button = WebDriverWait(driver, 10).until(
+        assert WebDriverWait(driver, 10).until(
             expected_conditions.visibility_of_element_located(
                 Locators.ORDER_BUTTON
             )
-        )
-
-        assert order_button.is_displayed()
-        driver.quit()
+        ).is_displayed()
 
     def test_login_from_forgot_password_form(self, driver):
         driver.get(Urls.FORGOT_PASSWORD_URL)
@@ -97,11 +88,8 @@ class TestLogin:
         )
         driver.find_element(*Locators.LOGIN_BUTTON).click()
 
-        order_button = WebDriverWait(driver, 10).until(
+        assert WebDriverWait(driver, 10).until(
             expected_conditions.visibility_of_element_located(
                 Locators.ORDER_BUTTON
             )
-        )
-
-        assert order_button.is_displayed()
-        driver.quit()
+        ).is_displayed()

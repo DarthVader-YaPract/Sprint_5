@@ -21,14 +21,11 @@ class TestConstructor:
         )
         driver.find_element(*Locators.BUNS_TAB).click()
 
-        active_tab = WebDriverWait(driver, 10).until(
-            expected_conditions.visibility_of_element_located(
-                Locators.ACTIVE_CONSTRUCTOR_TAB
+        assert WebDriverWait(driver, 10).until(
+            expected_conditions.text_to_be_present_in_element(
+                Locators.ACTIVE_CONSTRUCTOR_TAB, "Булки"
             )
         )
-
-        assert active_tab.text == "Булки"
-        driver.quit()
 
     @pytest.mark.parametrize(
         "tab_locator, expected_text",
@@ -46,16 +43,8 @@ class TestConstructor:
         )
         tab.click()
 
-        WebDriverWait(driver, 10).until(
+        assert WebDriverWait(driver, 10).until(
             expected_conditions.text_to_be_present_in_element(
                 Locators.ACTIVE_CONSTRUCTOR_TAB, expected_text
             )
         )
-        active_tab = WebDriverWait(driver, 10).until(
-            expected_conditions.visibility_of_element_located(
-                Locators.ACTIVE_CONSTRUCTOR_TAB
-            )
-        )
-
-        assert active_tab.text == expected_text
-        driver.quit()

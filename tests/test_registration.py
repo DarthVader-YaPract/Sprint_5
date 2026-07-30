@@ -19,12 +19,9 @@ class TestRegistration:
         driver.find_element(*Locators.PASSWORD_INPUT).send_keys(password)
         driver.find_element(*Locators.REGISTRATION_BUTTON).click()
 
-        WebDriverWait(driver, 10).until(
+        assert WebDriverWait(driver, 10).until(
             expected_conditions.url_to_be(Urls.LOGIN_URL)
         )
-
-        assert driver.current_url == Urls.LOGIN_URL
-        driver.quit()
 
     def test_registration_with_incorrect_password(self, driver):
         email = generate_email()
@@ -39,11 +36,8 @@ class TestRegistration:
         )
         driver.find_element(*Locators.REGISTRATION_BUTTON).click()
 
-        error = WebDriverWait(driver, 10).until(
+        assert WebDriverWait(driver, 10).until(
             expected_conditions.visibility_of_element_located(
                 Locators.INCORRECT_PASSWORD_ERROR
             )
-        )
-
-        assert error.text == TestData.INCORRECT_PASSWORD_ERROR
-        driver.quit()
+        ).text == TestData.INCORRECT_PASSWORD_ERROR
